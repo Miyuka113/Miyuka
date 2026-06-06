@@ -1,0 +1,66 @@
+<div class="new-container">
+
+  <div class="new-card">
+
+    <h1 class="new-title">＋ 新規投稿</h1>
+
+    <%= form_for @tweet do |f| %>
+      <div class="new-form">
+        <div class="form-group">
+          <%= f.label :title, "タイトル" %>
+          <%= f.text_field :title, class: "form-input" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :place, "場所" %>
+          <%= f.text_field :place, class: "form-input" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :people, "人数" %>
+          <%= f.number_field :people, class: "form-input" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :budget, "予算" %>
+          <%= f.number_field :budget, class: "form-input" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :genre, "ジャンル" %>
+          <%= f.text_field :genre, class: "form-input" %>
+        </div>
+
+        <!-- タグ -->
+        <div class="form-group">
+          <p class="form-label">タグ</p>
+
+          <div class="tag-box">
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+              <label class="tag-item">
+              <%= tag.check_box %>
+              <span><%= tag.text %></span>
+            </label>
+          <% end %>
+          </div>
+       </div>
+
+        <!-- 画像 -->
+        <div class="form-group">
+          <%= f.label :image, "画像" %>
+          <%= f.file_field :image, class: "form-input" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.submit "投稿する", class: "submit-btn" %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="back-link">
+      <%= link_to "← 一覧に戻る", tweets_path %>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,110 @@
+/* =========================
+   Aboutページ
+========================= */
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ヒーローエリア */
+.about-hero {
+  text-align: center;
+  background: white;
+  padding: 50px 30px;
+  border-radius: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.about-hero h1 {
+  font-size: 56px;
+  color: #00a9a9;
+  margin-bottom: 15px;
+}
+
+.catch-copy {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f4a7a7;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  color: #555;
+  line-height: 1.8;
+}
+
+/* カード */
+.about-card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+}
+
+.about-card h2 {
+  color: #00a9a9;
+  margin-bottom: 20px;
+}
+
+.about-card h3 {
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.about-card p {
+  color: #555;
+  line-height: 1.8;
+}
+
+.feature {
+  margin-bottom: 20px;
+}
+
+/* リスト */
+.about-card ul {
+  padding-left: 20px;
+}
+
+.about-card li {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* ボタン */
+.about-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.about-buttons .action-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+
+  .about-hero h1 {
+    font-size: 40px;
+  }
+
+  .catch-copy {
+    font-size: 20px;
+  }
+
+  .about-card {
+    padding: 20px;
+  }
+
+  .about-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

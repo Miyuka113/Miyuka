@@ -1,0 +1,118 @@
+/* =========================
+   新規投稿ページ
+========================= */
+
+.new-title {
+  text-align: center;
+  color: #00a9a9;
+  font-size: 32px;
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+
+
+/* フォーム全体 */
+.new-form {
+  max-width: 750px;
+  margin: 0 auto;
+  background: rgb(255, 255, 255);
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* 各入力欄 */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label,
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* テキスト入力 */
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  font-size: 15px;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #00a9a9;
+  box-shadow: 0 0 0 3px rgba(0,169,169,0.1);
+}
+
+/* タグ */
+.tag-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-item {
+  background: #f7f7f7;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid transparent;
+}
+
+.tag-item:hover {
+  background: #e8ffff;
+  border-color: #00a9a9;
+}
+
+.tag-item input {
+  margin-right: 5px;
+}
+
+/* 投稿ボタン */
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background: #00a9a9;
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 4px 10px rgba(0,169,169,0.2);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,169,169,0.3);
+}
+
+/* 戻るリンク */
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link a {
+  color: #00a9a9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}

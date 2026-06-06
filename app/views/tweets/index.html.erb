@@ -1,0 +1,107 @@
+
+
+<div class="page-layout">
+
+  <div class="sidebar timeline-sidebar">
+
+    <h3>投稿を検索</h3>
+
+    <%= form_tag(tweets_path, method: :get) do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag '検索する' %>
+    <% end %>
+
+    <h3>タグ検索</h3>
+
+    <%= form_tag(tweets_path, method: :get) do %>
+
+      <% Tag.all.each do |tag| %>
+
+        <div>
+          <label>
+            <%= check_box_tag "tag_ids[]", tag.id %>
+            <%= tag.name %>
+          </label>
+        </div>
+
+      <% end %>
+
+      <%= submit_tag '検索' %>
+
+    <% end %>
+
+  </div>
+
+  <!-- 右側 -->
+  <div class="main-content">
+
+    <div class="tweets-container">
+
+      <% @tweets.each do |t| %>
+
+        <div class="tweet-card">
+
+          <!-- ユーザー情報 -->
+          <div class="user-info">
+
+            <% if t.user&.image&.attached? %>
+              <%= image_tag t.user.image, class: "user-icon" %>
+            <% else %>
+              <%= image_tag "default.png", class: "user-icon" %>
+            <% end %>
+
+            <p class="user-name"><%= t.user.name %></p>
+
+          
+          </div>
+
+          <!-- 投稿画像 -->
+          <% if t.image.attached? %>
+            <%= image_tag url_for(t.image), class: "tweet-image" %>
+          <% end %>
+
+          <!-- 投稿内容 -->
+          <h3><%= t.title %></h3>
+
+          <p>📍 <%= t.place %></p>
+          <p>👥 <%= t.people %>人</p>
+          <p>💰 <%= t.budget %>円</p>
+          <p>🏷️ <%= t.genre %></p>
+          <%= link_to "詳細へ →", tweet_path(t.id), class: "detail-link" %>
+          
+<div class="like-area">
+
+  <% if user_signed_in? %>
+
+    <% if current_user.already_liked?(t) %>
+
+      <%= link_to "♡",
+        tweet_like_path(t, current_user.likes.find_by(tweet_id: t.id)),
+        data: { turbo_method: :delete },
+        class: "like-btn heart-btn liked" %>
+
+    <% else %>
+
+      <%= link_to "♡",
+        tweet_likes_path(t),
+        data: { turbo_method: :post },
+        class: "like-btn heart-btn" %>
+
+    <% end %>
+
+  <% end %>
+
+  <p class="like-count"> <%= t.likes.count %> いいね</p>
+
+</div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
+

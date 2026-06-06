@@ -1,0 +1,94 @@
+<div class="page-layout">
+
+  <!-- 左サイドバー（プロフィール） -->
+<div class="sidebar mypage-sidebar">
+  <div class="profile-box">
+
+<% if @user.image&.attached? %>
+  <%= image_tag @user.image, class: "mypage-sidebar-avatar" %>
+<% else %>
+  <%= image_tag "default.png", class: "mypage-sidebar-avatar" %>
+<% end %>
+
+    <h2><%= @user.name %></h2>
+
+    <p>メールアドレス : <%= @user.email %></p>
+    <p>プロフィール : <%= @user.profile %></p>
+
+    <% if current_user.id == @user.id %>
+      <%= link_to "編集する", edit_user_registration_path, class: "action-btn" %>
+    <% end %>
+
+    <p>
+     <%= button_to "ログアウト",
+       destroy_user_session_path,
+      method: :delete,
+      class: "action-btn logout-btn" %>
+    </p>
+
+  </div>
+
+  </div>
+
+
+  <div class="main-content">
+
+    <div class="mypage-section">
+
+      <h2>ユーザーの投稿一覧</h2>
+
+      <div class="tweets-container">
+
+        <% @user.tweets.each do |t| %>
+
+          <div class="tweet-card">
+
+            <div class="user-info">
+              <% if t.user.image.attached? %>
+                <%= image_tag t.user.image, class: "user-icon" %>
+              <% end %>
+
+              <p class="user-name"><%= t.user.name %></p>
+            </div>
+
+            <h3><%= t.title %></h3>
+
+            <p>📍 <%= t.place %></p>
+            <p>👥 <%= t.people %>人</p>
+            <p>💰 <%= t.budget %>円</p>
+            <p>🏷️ <%= t.genre %></p>
+
+<div class="tweet-actions">
+
+  <%= link_to "詳細", tweet_path(t.id), class: "detail-link" %>
+
+  <div class="kebab-menu">
+
+    <button class="kebab-btn">⋯</button>
+
+    <div class="kebab-dropdown">
+
+      <%= link_to "編集", edit_tweet_path(t), class: "kebab-item" %>
+
+      <%= button_to "削除",
+          tweet_path(t.id),
+          method: :delete,
+          class: "kebab-item danger",
+          form: { data: { turbo_confirm: "削除しますか？" } } %>
+
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

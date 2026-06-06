@@ -1,0 +1,29 @@
+<%= form_for @tweet do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :place %>
+    <%= f.text_field :place %>
+  </div>
+
+  <div class="field">
+    <%= f.label :people %>
+    <%= f.number_field :people %>
+  </div>
+
+  <div class="field">
+    <%= f.label :budget %>
+    <%= f.number_field :budget %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+  </div>
+
+  <%= f.submit "編集する" %>
+
+<% end %>

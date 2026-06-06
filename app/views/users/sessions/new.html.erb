@@ -1,0 +1,53 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h1 class="login-title">AsobiNote</h1>
+
+    <%= form_for(resource,
+      as: resource_name,
+      url: session_path(resource_name)) do |f| %>
+
+      <div class="field">
+
+        <%= f.email_field :email,
+          autofocus: true,
+          autocomplete: "email",
+          placeholder: "メールアドレス" %>
+
+      </div>
+
+      <div class="field">
+
+        <%= f.password_field :password,
+          autocomplete: "current-password",
+          placeholder: "パスワード" %>
+
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+
+        <div class="remember-box">
+
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+
+        </div>
+
+      <% end %>
+
+      <div class="actions">
+
+        <%= f.submit "ログイン", class: "login-btn" %>
+
+      </div>
+
+    <% end %>
+
+    <div class="login-links">
+      <%= render "users/shared/links" %>
+    </div>
+
+  </div>
+
+</div>

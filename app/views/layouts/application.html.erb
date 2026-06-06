@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Miyuka" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+
+  <header class="site-header">
+
+ <%= link_to about_path, class: "site-title-link" do %>
+  <h1 class="site-title">AsobiNote</h1>
+<% end %>
+
+  <div class="header-buttons">
+
+    <% if user_signed_in? %>
+    
+    <%= link_to tweets_path, class: "header-btn" do %>
+        <i data-lucide="home"></i> タイムライン
+    <% end %>
+    
+    <%= link_to user_path(current_user.id), class: "header-btn" do %>
+        <i data-lucide="user"></i> マイページ
+     <% end %>
+
+    <%= link_to favorites_path, class: "header-btn" do %>
+        <i data-lucide="heart"></i> お気に入り
+    <% end %>
+
+    <%= link_to new_tweet_path, class: "header-btn header-btn-primary" do %>
+       <i data-lucide="plus"></i> 新規投稿
+    <% end %>
+
+    <% else %>
+
+      <%= link_to "新規登録", new_user_registration_path, class: "header-btn" %>
+
+      <%= link_to "ログイン", new_user_session_path, class: "header-btn" %>
+
+    <% end %>
+
+  </div>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+  </body>
+</html>

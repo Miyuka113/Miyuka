@@ -1,0 +1,159 @@
+/* ログイン・新規登録 */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  background: #FFF8F3;
+}
+
+.login-card {
+  width: 400px;
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.login-title {
+  font-size: 46px;
+  font-weight: 900;
+  font-family:
+    "M PLUS Rounded 1c",
+    sans-serif;
+  color: #f4a7a7;
+  -webkit-text-stroke: 6px white;
+  paint-order: stroke fill;
+  text-shadow:
+    0 3px 0 rgba(0,0,0,0.08),
+    0 8px 15px rgba(255,140,90,0.25);
+  margin-bottom: 30px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 15px;
+  background: #FFF3ED;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: #f4a7a7;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-btn:hover {
+  transform: scale(1.03);
+  background: #f4a7a7;
+}
+
+.signup-btn {
+  background: #f4a7a7 !important;
+}
+
+.signup-btn:hover {
+  background: #f4a7a7 !important;
+}
+
+.remember-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.login-links {
+  margin-top: 20px;
+}
+
+.login-links a {
+  color: #f4a7a7;
+  text-decoration: none;
+}
+
+/* マイページ */
+.mypage-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.mypage-section {
+  flex: 1;
+}
+
+.mypage-sidebar {
+  width: 220px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.mypage-sidebar-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #f4a7a7;
+}
+
+.mypage-sidebar h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mypage-sidebar p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Devise 編集画面 */
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: bold;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  outline: none;
+  background: white;
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.actions {
+  margin-top: 20px;
+}

@@ -1,0 +1,35 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h2 class="login-title">新規登録</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <%= f.text_field :name, placeholder: "名前", autofocus: true %>
+
+      <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email" %>
+
+      <% if @minimum_password_length %>
+        <p style="font-size:12px; color:#999;">
+          (<%= @minimum_password_length %> characters minimum)
+        </p>
+      <% end %>
+
+      <%= f.password_field :password, placeholder: "パスワード", autocomplete: "new-password" %>
+
+      <%= f.password_field :password_confirmation, placeholder: "確認用パスワード", autocomplete: "new-password" %>
+
+      <%= f.submit "Sign up", class: "login-btn signup-btn" %>
+
+    <% end %>
+
+    <div class="login-links">
+      <%= render "users/shared/links" %>
+    </div>
+
+  </div>
+
+</div>

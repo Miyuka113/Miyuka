@@ -1,0 +1,92 @@
+/* 投稿詳細ページ */
+.detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.detail-card {
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.detail-title {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.detail-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.detail-info p {
+  margin: 6px 0;
+  color: #555;
+}
+
+.detail-tags {
+  margin: 15px 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #f5f5f5;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 5px;
+  color: #555;
+  text-decoration: none;
+}
+
+.tag:hover {
+  background: #e8ffff;
+  color: #00a9a9;
+}
+
+.liked-users {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.liked-users ul {
+  padding-left: 20px;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* 詳細ページ内のユーザー情報 */
+.detail-card .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.detail-card .user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.detail-card .user-name {
+  font-weight: bold;
+  margin: 0;
+}

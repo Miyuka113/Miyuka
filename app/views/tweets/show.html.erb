@@ -1,0 +1,140 @@
+<div class="detail-container">
+
+  <div class="detail-card">
+
+    <h1 class="detail-title"><%= @tweet.title %></h1>
+
+    <!-- 投稿画像 -->
+    <% if @tweet.image.attached? %>
+      <%= image_tag url_for(@tweet.image), class: "detail-image" %>
+    <% end %>
+
+    <!-- 投稿者 -->
+<div class="user-info">
+  <% if @tweet.user&.image&.attached? %>
+    <%= image_tag @tweet.user.image, class: "user-icon" %>
+  <% else %>
+    <%= image_tag "default.png", class: "user-icon" %>
+  <% end %>
+
+  <p class="user-name"><%= @tweet.user.name %></p>
+</div>
+
+    <!-- 投稿内容 -->
+    <div class="detail-info">
+      <p>📍 <%= @tweet.place %></p>
+      <p>👥 <%= @tweet.people %>人</p>
+      <p>💰 <%= @tweet.budget %>円</p>
+      <p>🏷️ <%= @tweet.genre %></p>
+      <p>🕒 <%= @tweet.created_at.strftime("%Y/%m/%d") %></p>
+    </div>
+
+    <!-- タグ -->
+    <div class="detail-tags">
+      <% @tweet.tags.each do |tag| %>
+        <%= link_to "##{tag.name}",
+           tweets_path(tag_id: tag.id),
+           class: "tag" %>
+      <% end %>
+    </div>
+
+    <!-- いいね -->
+<div class="detail-like">
+
+  <% if user_signed_in? %>
+
+    <% if current_user.already_liked?(@tweet) %>
+
+      <%= link_to "♥",
+        tweet_like_path(@tweet, current_user.likes.find_by(tweet_id: @tweet.id)),
+        data: { turbo_method: :delete },
+        class: "like-btn liked" %>
+
+    <% else %>
+
+      <%= link_to "♡",
+        tweet_likes_path(@tweet),
+        data: { turbo_method: :post },
+        class: "like-btn" %>
+
+    <% end %>
+
+  <% else %>
+    <span class="like-btn disabled">♡</span>
+  <% end %>
+
+  <p class="like-count">♡ <%= @tweet.likes.count %></p>
+
+</div>
+
+    <!-- いいねしたユーザー -->
+    <div class="liked-users">
+      <h3>いいねしたユーザー</h3>
+      <ul>
+        <% @tweet.liked_users.each do |user| %>
+          <li><%= user.name %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- アクション -->
+    <div class="detail-actions">
+      <%= link_to "一覧に戻る", tweets_path, class: "action-btn" %>
+      <%= link_to "編集する", edit_tweet_path(@tweet), class: "action-btn" %>
+    </div>
+
+  </div>
+
+<div class="comment-wrapper">
+
+  <h3 class="comment-title">コメント一覧</h3>
+
+  <% @comments.each do |c| %>
+
+<div class="comment-box">
+
+  <% if c.user&.image&.attached? %>
+    <%= image_tag c.user.image, class: "comment-icon" %>
+  <% else %>
+    <%= image_tag "default.png", class: "comment-icon" %>
+  <% end %>
+
+  <div class="comment-body">
+
+    <p class="comment-user"><%= c.user.name %></p>
+
+    <p class="comment-content"><%= c.content %></p>
+
+    <div class="comment-actions">
+      <% if c.user == current_user %>
+        <%= link_to "削除",
+          tweet_comment_path(@tweet, c),
+          data: { turbo_method: :delete },
+          class: "comment-delete-btn"
+        %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
+
+  <% end %>
+
+  <% if user_signed_in? %>
+
+    <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+
+      <%= f.text_area :content,
+        placeholder: "コメントを書く..." %>
+
+      <%= f.submit "コメントする",
+        class: "comment-btn" %>
+
+    <% end %>
+
+  <% end %>
+
+</div>
+
+</div>

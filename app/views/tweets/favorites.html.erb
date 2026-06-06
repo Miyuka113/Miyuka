@@ -1,0 +1,49 @@
+<div class="page-layout">
+
+  <!-- メイン -->
+  <div class="main-content">
+
+    <div class="mypage-section">
+
+      <h1>お気に入り一覧</h1>
+
+      <div class="tweets-container">
+
+        <% @tweets.each do |t| %>
+
+          <div class="tweet-card">
+
+            <div class="user-info">
+            <% if t.user&.image&.attached? %>
+                <%= image_tag t.user.image, class: "user-icon" %>
+            <% else %>
+                <%= image_tag "default.png", class: "user-icon" %>
+            <% end %>
+
+            <p class="user-name"><%= t.user.name %></p>
+            </div>
+
+            <% if t.image.attached? %>
+              <%= image_tag url_for(t.image), class: "tweet-image" %>
+            <% end %>
+
+            <h3><%= t.title %></h3>
+
+            <p>📍 <%= t.place %></p>
+            <p>👥 <%= t.people %>人</p>
+            <p>💰 <%= t.budget %>円</p>
+            <p>🏷️ <%= t.genre %></p>
+
+            <p>♡ <%= t.likes.count %></p>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
