@@ -64,3 +64,31 @@
 .heart-btn {
   font-size: 22px;
 }
+
+
+.favorite-title{
+  text-align:center;
+  font-size: 34px;
+  font-weight: 900;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: #00a9a9;
+
+
+  margin-bottom: 30px;
+
+  -webkit-text-stroke: 6px white;
+  paint-order: stroke fill;
+
+  letter-spacing: 2px;
+}
+
+
+.favorite-title::after{
+  content:"";
+  display:block;
+  width:140px;
+  height:8px;
+  background:#ffd6d6;
+  border-radius:999px;
+  margin:12px auto 0;
+}

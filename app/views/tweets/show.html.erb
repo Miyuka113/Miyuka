@@ -45,16 +45,18 @@
 
     <% if current_user.already_liked?(@tweet) %>
 
-      <%= link_to "♥",
+      <%= button_to "♥",
         tweet_like_path(@tweet, current_user.likes.find_by(tweet_id: @tweet.id)),
-        data: { turbo_method: :delete },
+        method: :delete,
+        form: { data: { turbo: false } },
         class: "like-btn liked" %>
 
     <% else %>
 
-      <%= link_to "♡",
+      <%= button_to "♡",
         tweet_likes_path(@tweet),
-        data: { turbo_method: :post },
+        method: :post,
+        form: { data: { turbo: false } },
         class: "like-btn" %>
 
     <% end %>
@@ -78,10 +80,13 @@
     </div>
 
     <!-- アクション -->
-    <div class="detail-actions">
-      <%= link_to "一覧に戻る", tweets_path, class: "action-btn" %>
-      <%= link_to "編集する", edit_tweet_path(@tweet), class: "action-btn" %>
-    </div>
+  <div class="detail-actions">
+  <%= link_to "一覧に戻る", tweets_path, class: "action-btn" %>
+
+  <% if user_signed_in? && current_user.id == @tweet.user_id %>
+    <%= link_to "編集する", edit_tweet_path(@tweet), class: "action-btn" %>
+  <% end %>
+</div>
 
   </div>
 

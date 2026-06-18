@@ -20,6 +20,9 @@ class TweetsController < ApplicationController
                        .where(tags: { id: params[:tag_ids] })
                        .distinct
     end
+
+  @recommended_tweets = Tweet.order("RANDOM()").limit(3)
+
   end
 
   def new

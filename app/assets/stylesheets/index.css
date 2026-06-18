@@ -1,195 +1,277 @@
+/* =========================
+   タイムラインページ
+========================= */
+
 /* 一覧ページ全体 */
-.page-layout {
-  display: flex;
-  gap: 30px;
-  padding: 0 30px;
+.page-layout{
+  display:grid;
+  grid-template-columns:220px minmax(0, 1fr) 330px;
+  gap:30px;
+  padding:0 30px;
+  align-items:start;
 }
 
-/* タイムラインサイドバー */
-.timeline-sidebar {
-  width: 220px;
-  background: white;
-  padding: 20px;
-  border-radius: 22px;
-  height: fit-content;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+/* 左サイドバー */
+.page-layout .timeline-sidebar{
+  width:220px;
+  background:white;
+  padding:20px;
+  border-radius:22px;
+  height:fit-content;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
 
-.timeline-sidebar input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  outline: none;
-  margin-bottom: 10px;
+.page-layout .timeline-sidebar input[type="text"]{
+  width:100%;
+  padding:10px;
+  border-radius:20px;
+  border:1px solid #ddd;
+  outline:none;
+  margin-bottom:10px;
 }
 
-.timeline-sidebar input[type="submit"] {
-  background: #00a9a9;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
+.page-layout .timeline-sidebar input[type="submit"]{
+  background:#00a9a9;
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.timeline-sidebar h3 {
-  font-size: 14px;
-  color: #00a9a9;
-  margin: 15px 0 8px;
-  letter-spacing: 1px;
+.page-layout .timeline-sidebar h3{
+  font-size:14px;
+  color:#00a9a9;
+  margin:15px 0 8px;
+  letter-spacing:1px;
 }
 
 /* メイン */
-.main-content {
-  flex: 1;
-  display: block;
+.page-layout .main-content{
+  min-width:0;
 }
 
-.tweets-container {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+.page-layout .tweets-container{
+  width:100%;
+  max-width:700px;
+  margin:0 auto 25px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.page-layout .timeline-title{
+  text-align:center;
+  font-size:34px;
+  font-weight:900;
+  font-family:"M PLUS Rounded 1c", sans-serif;
+  color:#00a9a9;
+  margin-bottom:30px;
+  -webkit-text-stroke:6px white;
+  paint-order:stroke fill;
+  letter-spacing:2px;
+}
+
+.page-layout .timeline-title::after{
+  content:"";
+  display:block;
+  width:140px;
+  height:8px;
+  background:#ffd6d6;
+  border-radius:999px;
+  margin:12px auto 0;
 }
 
 /* 投稿カード */
-.tweet-card {
-  position: relative;
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin-bottom: 0;
-  transition: 0.2s ease;
+.page-layout .tweet-card{
+  position:relative;
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:0.2s ease;
 }
 
-.tweet-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+.page-layout .tweet-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* ユーザー情報 */
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+.page-layout .user-info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
 }
 
-.user-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
+.page-layout .user-icon{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  object-fit:cover;
 }
 
-.user-name {
-  font-weight: bold;
-  margin: 0;
+.page-layout .user-name{
+  font-weight:bold;
+  margin:0;
 }
 
 /* 投稿画像 */
-.tweet-image {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
+.page-layout .tweet-image{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:15px;
 }
 
 /* 詳細リンク */
-.detail-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  background: white;
-  color: #00a9a9;
-  border: 2px solid #00a9a9;
-  font-size: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.2s;
+.page-layout .detail-link{
+  display:inline-block;
+  margin-top:10px;
+  padding:6px 12px;
+  border-radius:20px;
+  background:white;
+  color:#00a9a9;
+  border:2px solid #00a9a9;
+  font-size:12px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:0.2s;
 }
 
-.detail-link:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+.page-layout .detail-link:hover{
+  transform:scale(1.05);
+  opacity:0.9;
 }
 
-/* ⋯メニュー */
-.kebab-menu {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+/* いいね */
+.page-layout .like-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:12px;
 }
 
-.kebab-btn {
-  background: white;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.page-layout .like-area form{
+  margin:0;
 }
 
-.kebab-btn:hover {
-  transform: scale(1.1);
+.page-layout .like-count{
+  margin:0;
 }
 
-.kebab-dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 40px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  overflow: hidden;
-  min-width: 120px;
-  z-index: 100;
+/* 右おすすめ */
+.page-layout .recommend-sidebar{
+  width:330px;
+  position:sticky;
+  top:30px;
 }
 
-.kebab-menu:hover .kebab-dropdown {
-  display: block;
+.page-layout .recommend-sidebar h2{
+  color:#f4a7a7;
+  text-align:center;
+  margin-bottom:20px;
 }
 
-.kebab-item,
-.kebab-dropdown form button {
-  display: block;
-  width: 100%;
-  padding: 10px 12px;
-  font-size: 13px;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  transition: 0.2s;
-  box-sizing: border-box;
+.page-layout .recommend-card{
+  display:flex;
+  gap:14px;
+  background:white;
+  padding:15px;
+  border-radius:22px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom:18px;
+  transition:0.2s;
 }
 
-.kebab-item:hover,
-.kebab-dropdown form button:hover {
-  background: #f0ffff;
+.page-layout .recommend-card:hover{
+  transform:translateY(-5px);
 }
 
-.kebab-item.danger,
-.kebab-dropdown form button {
-  color: #f4a7a7;
-  font-weight: bold;
+.page-layout .recommend-image{
+  width:120px;
+  height:95px;
+  object-fit:cover;
+  border-radius:16px;
 }
 
-.kebab-dropdown form button:hover {
-  background: #fff0f0;
+.page-layout .recommend-info h3{
+  margin:0 0 8px;
+  font-size:16px;
+}
+
+.page-layout .recommend-info p{
+  margin:4px 0;
+  font-size:13px;
+}
+
+.page-layout .recommend-link{
+  display:inline-block;
+  margin-top:8px;
+  background:#f4a7a7;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* タイムライン吹き出し */
+.timeline-tip{
+  position:fixed;
+  right:40px;
+  bottom:40px;
+  z-index:1000;
+  background:white;
+  color:#f4a7a7;
+  padding:18px 24px;
+  border-radius:25px;
+  font-size:18px;
+  font-weight:900;
+  text-align:center;
+  border:4px solid #ffd6d6;
+  box-shadow:0 8px 20px rgba(244,167,167,0.25);
+  animation:tip-float 3s ease-in-out infinite;
+}
+
+.timeline-tip::after{
+  content:"";
+  position:absolute;
+  bottom:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:12px 10px 0 10px;
+  border-style:solid;
+  border-color:#ffd6d6 transparent transparent transparent;
+}
+
+@keyframes tip-float{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+  100%{ transform:translateY(0); }
+}
+
+/* スマホ */
+@media(max-width:1000px){
+  .page-layout{
+    grid-template-columns:1fr;
+  }
+
+  .page-layout .timeline-sidebar,
+  .page-layout .recommend-sidebar{
+    width:100%;
+    position:static;
+  }
+
+  .page-layout .tweets-container{
+    max-width:700px;
+  }
+
+  .timeline-tip{
+    display:none;
+  }
 }

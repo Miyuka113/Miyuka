@@ -1,69 +1,69 @@
 <div class="about-container">
 
-  <div class="about-hero">
-    <h1>🎈 AsobiNote</h1>
-    <p class="catch-copy">
-      「今日なにして遊ぶ？」をもっと楽しく。
-    </p>
-    <p>
-      みんなの遊びアイデアを投稿・共有し、
-      次のレクリエーションやお出かけのヒントを見つけるサービスです。
-    </p>
-  </div>
+  <% if File.exist?(Rails.root.join("app/assets/images/about-hero.png")) %>
+    <%= image_tag "about-hero.png", class: "about-main-image" %>
+  <% end %>
+
+
 
   <div class="about-card">
-    <h2>🎮 AsobiNoteでできること</h2>
+    <h2>　AsobiNoteでできること</h2>
 
-    <div class="feature">
-      <h3>遊びを投稿する</h3>
-      <p>楽しかった遊びやレクリエーションを写真付きで共有できます。</p>
-    </div>
 
-    <div class="feature">
-      <h3>遊びを探す</h3>
-      <p>人数・場所・予算・ジャンルから遊びのアイデアを見つけられます。</p>
-    </div>
+<div class="feature">
+  <h3>遊びを投稿する</h3>
+  <p>楽しかった遊びやレクリエーションを写真付きで共有できます。</p>
+</div>
 
-    <div class="feature">
-      <h3>タグで検索する</h3>
-      <p>室内遊び・外遊び・大人数向けなど目的別に探せます。</p>
-    </div>
+<div class="feature">
+  <h3>遊びを探す</h3>
+  <p>人数・場所・予算・ジャンルから遊びのアイデアを見つけられます。</p>
+</div>
 
-    <div class="feature">
-      <h3>お気に入り保存</h3>
-      <p>気になる遊びを保存して後で見返せます。</p>
-    </div>
+<div class="feature">
+  <h3>タグで検索する</h3>
+  <p>室内遊び・外遊び・大人数向けなど目的別に探せます。</p>
+</div>
+
+<div class="feature">
+  <h3>お気に入り保存</h3>
+  <p>気になる遊びを保存して後で見返せます。</p>
+</div>
+
+
   </div>
 
-  <div class="about-card">
-    <h2>🌟 こんな人におすすめ</h2>
+<div class="about-card message-card">
 
-    <ul>
-      <li>サークルの企画担当</li>
-      <li>合宿や新歓の運営メンバー</li>
-      <li>イベント企画を考える人</li>
-      <li>友達とのお出かけを計画したい人</li>
-      <li>新しい遊びを探している人</li>
-    </ul>
-  </div>
 
-  <div class="about-card">
-    <h2>💡 AsobiNoteに込めた想い</h2>
+  <h2>AsobiNoteに込めた想い</h2>
 
-    <p>
-      「何して遊ぶ？」と悩んだ経験から生まれたサービスです。
-    </p>
+<p class="message-main">
+  「何して遊ぶ？」という悩みを、<br>
+  「これやってみたい！」というワクワクに変えたい。
+</p>
 
-    <p>
-      誰かが考えた遊びが、別の誰かの楽しい思い出になる。
-      そんなアイデアの共有場所を目指しています。
-    </p>
+  <div class="message-line"></div>
+
+  <p>
+    誰かが考えた遊びが、
+    別の誰かの楽しい思い出になる。
+  </p>
+
+  <p>
+    AsobiNoteは、
+    遊びのアイデアを共有し、
+    人と人をつなぐ場所を目指しています。
+  </p>
+
+</div>
+
+
   </div>
 
   <div class="about-buttons">
-    <%= link_to "🎈 投稿を見る", tweets_path, class: "action-btn" %>
-    <%= link_to "➕ 遊びを投稿する", new_tweet_path, class: "action-btn" %>
+    <%= link_to "投稿を見る", tweets_path, class: "action-btn" %>
+    <%= link_to "遊びを投稿する", new_tweet_path, class: "action-btn" %>
   </div>
 
 </div>
-```

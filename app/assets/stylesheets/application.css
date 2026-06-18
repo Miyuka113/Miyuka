@@ -12,7 +12,6 @@ body {
   font-family: 'Zen Maru Gothic', sans-serif;
   margin: 0;
 }
-
 /* ヘッダー */
 .site-header {
   background: #f4a7a7;
@@ -103,3 +102,4 @@ body {
 .action-btn:hover {
   transform: scale(1.05);
 }
+
